@@ -1,5 +1,5 @@
 <?php
-namespace Package\Raxon\App\Ace\Trait;
+namespace Package\Raxon\Ace\Trait;
 
 use Raxon\App;
 use Raxon\Config;

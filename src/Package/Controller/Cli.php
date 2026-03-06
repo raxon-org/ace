@@ -1,6 +1,6 @@
 <?php
 
-namespace Package\Raxon\App\Ace\Controller;
+namespace Package\Raxon\Ace\Controller;
 
 use Raxon\App;
 

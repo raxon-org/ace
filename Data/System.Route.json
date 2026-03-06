@@ -5,7 +5,7 @@
         "#class": "System.Route",
         "name": "raxon-org-cli-application-ace",
         "path": "raxon\/ace",
-        "controller": "Package:Raxon:App:Ace:Controller:Cli:run",
+        "controller": "Package:Raxon:Ace:Controller:Cli:run",
         "priority": 1001,
         "request": {
           "language": "en"
