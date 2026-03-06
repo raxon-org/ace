@@ -1,0 +1,23 @@
+{
+    "System": {
+        "Route": [
+            {
+                "name": "application-ace-editor",
+                "path": "\/Application\/Ace\/Editor\/",
+                "host": "admin.workandtravel.world",
+                "controller": "Domain:Admin.Workandtravel.World:Application:Ace:Controller:Editor:main",
+                "priority": 3001,
+                "method": [
+                    "GET",
+                    "POST"
+                ]
+            },
+            {
+                "name": "application-ace-editor-icon",
+                "url": "\/Application\/Ace\/Icon\/Icon.png",
+                "host": "admin.workandtravel.world",
+                "priority": 3002
+            }
+        ]
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "System": {
+        "Route": [
+            {
+                "name": "application-ace-editor",
+                "path": "\/Application\/Ace\/Editor\/",
+                "host": "{{options('frontend.host')}}"",
+                "controller": "Domain:Domain:{{app.controller.host(options('frontend.host'))}}:Application:Ace:Controller:Editor:main",
+                "priority": 3001,
+                "method": [
+                    "GET",
+                    "POST"
+                ]
+            },
+            {
+                "name": "application-ace-editor-icon",
+                "url": "\/Application\/Ace\/Icon\/Icon.png",
+                "host": "{{options('frontend.host')}}",
+                "priority": 3002
+            }
+
+        ]
+    }
+}

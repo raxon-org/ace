@@ -1,0 +1,27 @@
+{{$backend.host = options('backend.host')}}{{literal}}
+//{{RAX}}
+import { version } from "/Module/Priya.js";
+import { root } from "/Module/Web.js";
+import { dialog } from "/Dialog/Module/Dialog.js";
+import { editor } from "/Application/Ace/Module/Editor.js"
+
+require(
+    [
+        root() + 'Application/Ace/Css/Editor.css?' + version(),
+        root() + 'Dialog/Css/Dialog.css?' + version(),
+    ],
+    function(){
+        editor.init({
+            "id": "{{$id}}",
+            "url": "{{server.url('{{/literal}}{{$backend.host}}{{literal}}')}}FileSystem/",
+        });
+        editor.load({
+            "pre": {
+                "id": "{{$pre.id}}"
+            },
+            "url": "{{server.url('{{/literal}}{{$backend.host}}{{literal}}')}}FileSystem/",
+        });
+        editor.ace("{{$pre.id}}");
+        dialog.init("{{$id}}");
+    }
+);
