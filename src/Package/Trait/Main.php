@@ -139,8 +139,6 @@ trait Main {
                             switch($file->original_extension){
                                 case 'json':                                    
                                     echo Cli::info('Processing file:') . $file->target . PHP_EOL;
-                                    d(File::read($file->url));
-                                    d($file->url);
                                     $content = $clone->parse_read($file->url);
                                     if($patch !== null) {
                                         File::delete($file->target);
@@ -169,7 +167,8 @@ trait Main {
                                     $read = File::read($file->url);
                                     d($file->url);
                                     d($read);
-                                    $content = $parse->compile($read, $data);                                     
+                                    $content = $parse->compile($read, $data);
+                                    d($content);
                                     if($patch !== null) {
                                         File::delete($file->target);
                                     }                                    
