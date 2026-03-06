@@ -166,6 +166,7 @@ trait Main {
                                     $flags = App::flags($clone);
                                     $parse = new Parse($clone, $data, $flags, $clone_options->data());
                                     $read = File::read($file->url);
+                                    d($file->url);
                                     d($read);
                                     $content = $parse->compile($read, $data);                                     
                                     if($patch !== null) {
