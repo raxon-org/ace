@@ -4,7 +4,7 @@
             {
                 "name": "application-ace-editor",
                 "path": "\/Application\/Ace\/Editor\/",
-                "host": "{{options('frontend.host')}},"
+                "host": "{{options('frontend.host')}}",
                 "controller": "Domain:Domain:{{app.controller.host(options('frontend.host'))}}:Application:Ace:Controller:Editor:main",
                 "priority": 3001,
                 "method": [
