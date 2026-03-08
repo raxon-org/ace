@@ -18,6 +18,7 @@ use Raxon\Node\Module\Node;
 use Exception;
 
 trait Main {
+    const NAME = 'Ace';
 
     /**
      * @throws DirectoryCreateException
@@ -84,7 +85,7 @@ trait Main {
             $object->config('ds')
         ;
         $dir_target = $dir_application .
-            'Ace' .
+            self::NAME .
             $object->config('ds')
         ;
         if(!File::exist($dir_target)){
