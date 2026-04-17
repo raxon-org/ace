@@ -22,7 +22,7 @@ require(
             "url": "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}FileSystem/",
         });
         require([
-            "/Application/Ace/Js/Ace/01.03.24/ace.js?version=" + options?.id,
+            "/Application/Ace/Js/Ace/01.03.24/ace.js?version={{$id}}",
         ], () => {
             editor.ace("{{$pre.id}}");
             dialog.init("{{$id}}");
