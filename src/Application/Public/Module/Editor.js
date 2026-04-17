@@ -31,10 +31,14 @@ editor.data = {
 
 editor.init = (options) => {
     taskbar.add('application.ace.editor', options?.id);
+    require([
+        "/Application/Ace/Js/01.03.24/ace.js",
+    ], () => {
+        editor.menu(options);
+        editor.menu_application(options);
+        editor.close(options);
+    });
 
-    editor.menu(options);
-    editor.menu_application(options);
-    editor.close(options);
 }
 
 editor.close = (options) => {
