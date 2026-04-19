@@ -21,12 +21,15 @@ require(
             },
             "url": "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}FileSystem/",
         });
+        editor.ace("{{$pre.id}}");
+        dialog.init("{{$id}}");
+        /*
         require([
             "/Application/Ace/Js/Ace/01.03.24/ace.js?version={{$id}}",
         ], () => {
-            editor.ace("{{$pre.id}}");
-            dialog.init("{{$id}}");
+
         });
+        */
     }
 );
 {{/literal}}
