@@ -175,13 +175,8 @@ editor.load = (options) => {
         if (typeof response === 'object') {
             response = JSON.stringify(response, null, 4);
         }
-        require([
-            "/"
-        ], () => {
-            editor.data.set('content', response);
-            editor.ace(options?.pre?.id);
-        }));
-
+        editor.data.set('content', response);
+        editor.ace(options?.pre?.id);
     });
 }
 
