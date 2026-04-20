@@ -8,8 +8,6 @@
 {{$request.append.to = 'body'}}
 {{require(config('controller.dir.view') + config('controller.title') + '/Section.tpl')}}
 {{script('source')}}
-<script src="{{server.url("{{/literal}}{{$frontend.host}}{{literal}}")}}Application/Ace/Js/Ace/01.03.24/ace.js?version={{$id}}"></script>
-<script src="{{server.url("{{/literal}}{{$frontend.host}}{{literal}}")}}Application/Ace/Js/Ace/01.03.24/ext-language_tools.js?version={{$id}}"></script>
 {{/script}}
 {{script('module')}}
 {{require(config('controller.dir.view') + config('controller.title') + '/Module/' + config('controller.title') + '.js')}}
