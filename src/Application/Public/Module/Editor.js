@@ -175,8 +175,13 @@ editor.load = (options) => {
         if (typeof response === 'object') {
             response = JSON.stringify(response, null, 4);
         }
-        editor.data.set('content', response);
-        editor.ace(options?.pre?.id);
+        require([
+            "/"
+        ], () => {
+            editor.data.set('content', response);
+            editor.ace(options?.pre?.id);
+        }));
+
     });
 }
 
