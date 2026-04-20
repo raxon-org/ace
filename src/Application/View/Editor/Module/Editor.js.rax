@@ -9,7 +9,7 @@ require(
     [
         root() + 'Application/Ace/Css/Editor.css?' + version(),
         root() + 'Dialog/Css/Dialog.css?' + version(),
-        root() + 'Application/Ace/Js/Ace/01.03.24/ace.js?version=' + version()
+        root() + 'Application/Ace/Js/Ace/2026.04.20/ace.js?version=' + version()
     ],
     function(){
         editor.init({
