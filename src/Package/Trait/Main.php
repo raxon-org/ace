@@ -190,6 +190,7 @@ trait Main {
                 }                
             }
         }
+        //add application and extensions like videoplayer
         $command = 'app install raxon/account -patch';
         Core::execute($object, $command, $output, $notification);
         if($output){
