@@ -205,9 +205,26 @@ editor.ace = (pre_id) => {
                 case 'json' :
                     editor_ace.session.setMode("ace/mode/json");
                     break;
+                case 'html' :
+                case 'md':
+                    editor_ace.session.setMode("ace/mode/html");
+                    break;
                 default :
                     editor_ace.session.setMode("ace/mode/php");
             }
+
+            // trigger extension
+            //ace.require("ace/ext/language_tools");
+            // var editor = ace.edit("editor");
+
+            editor_ace.setTheme("ace/theme/tomorrow");
+            // enable autocompletion and snippets
+            editor_ace.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true,
+                enableLiveAutocompletion: false
+            });
+            /*
             editor_ace.setTheme("ace/theme/tomorrow");
             console.log(Object.keys(editor_ace.$options));
             // enable autocompletion and snippets
@@ -216,6 +233,7 @@ editor.ace = (pre_id) => {
                 enableSnippets: true,
                 enableLiveAutocompletion: true,
             });
+             */
             editor_ace.session.setValue(editor.data.get('content'));
             // editor_ace.session.setValue(pre.data('content'));
             editor_ace.on('change', (e) => {
