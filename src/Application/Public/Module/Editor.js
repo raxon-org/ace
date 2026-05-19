@@ -224,7 +224,7 @@ editor.ace = (pre_id) => {
                 editor_ace.setOptions({
                     enableBasicAutocompletion: true,
                     enableSnippets: true,
-                    enableLiveAutocompletion: false
+                    enableLiveAutocompletion: true
                 });
                 /*
                 editor_ace.setTheme("ace/theme/tomorrow");
