@@ -183,66 +183,71 @@ editor.load = (options) => {
 editor.ace = (pre_id) => {
     let editor_ace = false;
     if(is.empty(editor_ace)) {
-        ace.require("/Js/Ace/2026.05.11/ext-language_tools");
-        editor_ace = ace.edit(pre_id);
-        let pre = select("#" + pre_id);
-        let extension;
-        if (pre) {
-            extension = pre.data('extension');
-            switch (extension) {
-                case 'php' :
-                    editor_ace.session.setMode("ace/mode/php");
-                    break;
-                case 'tpl' :
-                    editor_ace.session.setMode("ace/mode/smarty");
-                    break;
-                case 'css' :
-                    editor_ace.session.setMode("ace/mode/css");
-                    break;
-                case 'js' :
-                    editor_ace.session.setMode("ace/mode/javascript");
-                    break;
-                case 'json' :
-                    editor_ace.session.setMode("ace/mode/json");
-                    break;
-                case 'html' :
-                case 'md':
-                    editor_ace.session.setMode("ace/mode/html");
-                    break;
-                default :
-                    editor_ace.session.setMode("ace/mode/php");
+        require([
+            "/Js/Ace/2026.05.11/ext-language_tools",
+        ], () => {
+            editor_ace = ace.edit(pre_id);
+            let pre = select("#" + pre_id);
+            let extension;
+            if (pre) {
+                extension = pre.data('extension');
+                switch (extension) {
+                    case 'php' :
+                        editor_ace.session.setMode("ace/mode/php");
+                        break;
+                    case 'tpl' :
+                        editor_ace.session.setMode("ace/mode/smarty");
+                        break;
+                    case 'css' :
+                        editor_ace.session.setMode("ace/mode/css");
+                        break;
+                    case 'js' :
+                        editor_ace.session.setMode("ace/mode/javascript");
+                        break;
+                    case 'json' :
+                        editor_ace.session.setMode("ace/mode/json");
+                        break;
+                    case 'html' :
+                    case 'md':
+                        editor_ace.session.setMode("ace/mode/html");
+                        break;
+                    default :
+                        editor_ace.session.setMode("ace/mode/php");
+                }
+
+                // trigger extension
+                //ace.require("ace/ext/language_tools");
+                // var editor = ace.edit("editor");
+
+                editor_ace.setTheme("ace/theme/tomorrow");
+                // enable autocompletion and snippets
+                editor_ace.setOptions({
+                    enableBasicAutocompletion: true,
+                    enableSnippets: true,
+                    enableLiveAutocompletion: false
+                });
+                /*
+                editor_ace.setTheme("ace/theme/tomorrow");
+                console.log(Object.keys(editor_ace.$options));
+                // enable autocompletion and snippets
+                editor_ace.setOptions({
+                    enableBasicAutocompletion: true,
+                    enableSnippets: true,
+                    enableLiveAutocompletion: true,
+                });
+                 */
+                editor_ace.session.setValue(editor.data.get('content'));
+                // editor_ace.session.setValue(pre.data('content'));
+                editor_ace.on('change', (e) => {
+                    editor.data.set('content', editor_ace.getValue());
+                    // pre.data('content', editor.data.get('content'));
+                });
+                editor_ace.focus();
+                editor_ace.gotoLine(editor_ace.getSession().getLength(), editor_ace.getSession().getLine(editor_ace.getSession().getLength()-1).length);
             }
+        });
+        // ace.require("/Js/Ace/2026.05.11/ext-language_tools");
 
-            // trigger extension
-            //ace.require("ace/ext/language_tools");
-            // var editor = ace.edit("editor");
-
-            editor_ace.setTheme("ace/theme/tomorrow");
-            // enable autocompletion and snippets
-            editor_ace.setOptions({
-                enableBasicAutocompletion: true,
-                enableSnippets: true,
-                enableLiveAutocompletion: false
-            });
-            /*
-            editor_ace.setTheme("ace/theme/tomorrow");
-            console.log(Object.keys(editor_ace.$options));
-            // enable autocompletion and snippets
-            editor_ace.setOptions({
-                enableBasicAutocompletion: true,
-                enableSnippets: true,
-                enableLiveAutocompletion: true,
-            });
-             */
-            editor_ace.session.setValue(editor.data.get('content'));
-            // editor_ace.session.setValue(pre.data('content'));
-            editor_ace.on('change', (e) => {
-                editor.data.set('content', editor_ace.getValue());
-                // pre.data('content', editor.data.get('content'));
-            });
-            editor_ace.focus();
-            editor_ace.gotoLine(editor_ace.getSession().getLength(), editor_ace.getSession().getLine(editor_ace.getSession().getLength()-1).length);
-        }
     }
     console.log('ace');
 }
