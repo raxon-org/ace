@@ -184,7 +184,7 @@ editor.ace = (pre_id) => {
     let editor_ace = false;
     if(is.empty(editor_ace)) {
         require([
-            "/Js/Ace/2026.05.11/ext-language_tools",
+            "/Js/Ace/2026.05.11/ext-language_tools.js",
         ], () => {
             editor_ace = ace.edit(pre_id);
             let pre = select("#" + pre_id);
