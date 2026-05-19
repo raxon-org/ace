@@ -1082,6 +1082,7 @@ var optionsProvider = {
     setOption: function (name, value) {
         if (this["$" + name] === value)
             return;
+        console.log(this.$options);
         var opt = this.$options[name];
         if (!opt) {
             return warn('misspelled option "' + name + '"');

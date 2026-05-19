@@ -183,7 +183,7 @@ editor.load = (options) => {
 editor.ace = (pre_id) => {
     let editor_ace = false;
     if(is.empty(editor_ace)) {
-        ace.require("ace/ext/language_tools");
+        ace.require("/Js/Ace/2026.05.11/ext-language_tools");
         editor_ace = ace.edit(pre_id);
         let pre = select("#" + pre_id);
         let extension;
