@@ -228,9 +228,7 @@ trait Main {
                     $list_application[] = $application->getName();
                 }
             }
-            breakpoint($list_application);
             if(!in_array(self::NAME, $list_application, true)){
-                dd('empty ;list app');
                 //adding application to the extension and add extensions to the application
                 $repository = $connection->manager->getRepository('\Entity\Application');
                 $application_url = '{{route.get(\'application-ace-editor\')}}';
