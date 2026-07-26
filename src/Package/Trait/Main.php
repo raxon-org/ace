@@ -215,7 +215,18 @@ trait Main {
             'php',
             'html',
             'tpl',
-            'rax'
+            'rax',
+            'css',
+            'js',
+            'json',
+            'jsonl',
+            'gz',
+            'csv',
+            'xml',
+            'lock',
+            'btree',
+            'connect',
+            'db'
         ];
         $list =$repository->findBy([
             'name' => $extensions
