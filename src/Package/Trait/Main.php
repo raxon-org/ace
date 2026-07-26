@@ -67,9 +67,6 @@ trait Main {
         if($has_backend === false){
             throw new Exception('Backend.host option is required and must be defined in Node/System.Host.json aborting...');
         }
-        if(!property_exists($options, 'connection')){
-            $options->connection = 'system';
-        }
         $class = 'System.Host';
         $node = new Node($object);
         $response_frontend = $node->record($class, $node->role_system(), $frontend_options);
@@ -194,12 +191,23 @@ trait Main {
                 }                
             }
         }
+        if(!property_exists($options, 'connection')){
+            $options->connection = 'system';
+        }
+        if(!property_exists($options, 'environment')){
+            $options->environment = $object->config('framework.environment');;
+        }
+        if(empty($options->environment)){
+            $options->environment = '*';
+        }
         $config = Database::config($object);
         $connection = $object->config('doctrine.environment.' . $options->connection . '.' . $options->environment);
         if($connection === null){
             $connection = $object->config('doctrine.environment.' . $options->connection . '.' . '*');
         }
-
+        if($connection === null){
+            throw new Exception('Connection not found aborting...');       
+        }
         $connection->manager = Database::entity_manager($object, $config, $connection);
         $repository = $connection->manager->getRepository('\\Entity\\Extension');
         $extensions = [
