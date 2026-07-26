@@ -4,6 +4,7 @@ namespace Package\Raxon\Ace\Trait;
 use Raxon\App;
 use Raxon\Config;
 
+use Raxon\Doctrine\Module\Database;
 use Raxon\Exception\DirectoryCreateException;
 
 use Raxon\Module\Cli;
@@ -188,6 +189,55 @@ trait Main {
                         'target' => $file->target,
                     ]);
                 }                
+            }
+        }
+        $config = Database::config($object);
+        $connection = $object->config('doctrine.environment.' . $options->connection . '.' . $options->environment);
+        if($connection === null){
+            $connection = $object->config('doctrine.environment.' . $options->connection . '.' . '*');
+        }
+        $connection->manager = Database::entity_manager($object, $config, $connection);
+        $repository = $connection->manager->getRepository('\\Entity\\Extension');
+        $extensions = [
+            'md',
+            'php',
+            'html',
+            'tpl',
+            'rax'
+        ];
+        $list =$repository->findBy([
+            'name' => $extensions
+        ]);
+        $list_application = [];
+        foreach($list as $nr => $extension){
+            $applications = $extension->getApplications();
+            foreach($applications as $application_nr => $application){
+                if(!in_array($application->getName(), $list_application, true)){
+                    $list_application[] = $application->getName();
+                }
+            }
+            breakpoint($list_application);
+            if(!in_array(self::NAME, $list_application, true)){
+                //adding application to the extension and add extensions to the application
+                $repository = $connection->manager->getRepository('\Entity\Application');
+                $application_url = '{{route.get(\'application-video-player\')}}';
+                $entity_application = $repository->findOneBy([
+                    'url' => $application_url
+                ]);
+                if(!$entity_application){
+                    $entity_application = new \Entity\Application();
+                    $entity_application->setUrl('{{route.get(\'application-video-player\')}}');
+                    $entity_application->setName(self::NAME);
+                    $entity_application->iconUrl('/Application/VideoPlayer/Icon/Icon.png');
+                    $entity_application->setExtensions($list);
+                    $connection->manager->persist($entity_application);
+                } else {
+                    $entity_application->setExtensions($list);
+                    $connection->manager->persist($entity_application);
+                }
+                $extension->addApplication($entity_application);
+                $connection->manager->persist($extension);
+                $connection->manager->flush();
             }
         }
         //add application and extensions like videoplayer
