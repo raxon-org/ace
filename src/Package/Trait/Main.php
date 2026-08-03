@@ -211,6 +211,7 @@ trait Main {
         $connection->manager = Database::entity_manager($object, $config, $connection);
         $repository = $connection->manager->getRepository('\\Entity\\Extension');
         $extensions = [
+            'txt',
             'log',
             'ini',
             'md',
