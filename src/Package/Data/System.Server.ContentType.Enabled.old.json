@@ -1,0 +1,101 @@
+{
+  "System": {
+    "Server": {
+      "ContentType": {
+        "Enabled": [
+            {
+              "description": "Text file",
+              "type": "text\/plain",
+              "extension": ".txt"
+            },
+            {
+              "description": "Log file",
+              "type": "text/plain",
+              "extension": ".log"
+            },
+            {
+              "description": "Ini file",
+              "name": "text/plain",
+              "extension": ".ini"
+            },
+            {
+              "description": "Markdown file",
+              "name": "text/html",
+              "extension": ".md"
+            },
+          {
+            "description": "Php file",
+            "name": "text/html",
+            "extension": ".php"
+          },
+          {
+            "description": "Html file",
+            "name": "text/html",
+            "extension": ".html"
+          },
+          {
+            "description": "Gzip Wav file",
+            "name": "text/html",
+            "extension": ".tpl"
+          },
+          {
+            "description": "Gzip Wav file",
+            "name": "text/plain",
+            "extension": ".rax"
+          },
+          {
+            "description": "Cascading stylesheet file",
+            "name": "text/css",
+            "extension": ".css"
+          },
+          {
+            "description": "javascript file",
+            "name": "application/javascript",
+            "extension": ".js"
+          },
+          {
+            "description": "JSON file",
+            "name": "application/json",
+            "extension": ".json"
+          },{
+            "description": "Json line file",
+            "name": "application/jsonlines",
+            "extension": ".jsonl"
+          },
+          {
+            "description": "Gzip file",
+            "name": "application/x-gzip",
+            "extension": ".gz"
+          },{
+            "description": "Csv file",
+            "name": "text/csv",
+            "extension": ".csv"
+          },
+          {
+            "description": "Xml file",
+            "name": "application/xml",
+            "extension": ".xml"
+          },{
+            "description": "lock file",
+            "name": "text/plain",
+            "extension": ".lock"
+          },{
+            "description": "Binary tree file",
+            "name": "text/plain",
+            "extension": ".btree"
+          },
+          {
+            "description": "Connect file",
+            "name": "text/plain",
+            "extension": ".connect"
+          },
+          {
+            "description": "Db file",
+            "name": "application/octet-stream",
+            "extension": ".db"
+          }
+        ]
+      }
+    }
+  }
+}

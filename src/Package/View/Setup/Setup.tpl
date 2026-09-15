@@ -3,5 +3,5 @@
 {{Package.Raxon.Ace:Import:role.system()}}
 {{$flags = flags()}}
 {{$options = options()}}
-{{Package.Raxon.Ace:Main:install($flags, $options)}}
+{{Package.Raxon.Ace:Setup:install($flags, $options)}}
 {{/if}}

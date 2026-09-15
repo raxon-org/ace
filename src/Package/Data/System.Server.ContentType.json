@@ -1,0 +1,33 @@
+{
+  "System": {
+    "Server": {
+      "ContentType": {
+        "btree": "text\/plain",
+        "lock": "text\/plain",
+        "connect": "text\/plain",
+        "response": "text\/plain",
+        "txt": "text\/plain",
+        "log": "text\/plain",
+        "ini": "text\/plain",
+        "sh": "text\/plain",
+        "html": "text\/html",
+        "tpl": "text\/html",
+        "css": "text\/css",
+        "js": "application\/javascript",
+        "map": "application\/json",
+        "json": "application\/json",
+        "jsonl": "application\/jsonlines",
+        "md": "text\/html",
+        "svg": "image\/svg+xml",
+        "csv": "text\/csv",
+        "php": "text\/html",
+        "xml": "application\/xml",
+        "wasm": "application\/wasm",
+        "db": "application\/octet-stream",
+        "sql": "text\/plain",
+        "gz": "application/x-gzip",
+        "conf": "text/plain"
+      }
+    }
+  }
+}

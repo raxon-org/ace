@@ -1,0 +1,34 @@
+{
+  "System": {
+    "Server": {
+      "Extension": {
+        "txt": ".txt",
+        "log": ".log",
+        "ini": ".ini",
+        "html": ".html",
+        "css": ".css",
+        "js": ".js",
+        "map": ".map",
+        "json": ".json",
+        "jsonl": ".jsonl",
+        "md": ".md",
+        "svg": ".svg",
+        "wasm": ".wasm",
+        "gz": ".gz",
+        "tpl": ".tpl",
+        "conf": ".conf",
+        "pdf": ".pdf",
+        "php": ".php",
+        "csv": ".csv",
+        "xml": ".xml",
+        "lock": ".lock",
+        "btree": ".btree",
+        "connect": ".connect",
+        "response": ".response",
+        "sh": ".sh",
+        "db": ".db",
+        "sql": ".sql"
+      }
+    }
+  }
+}
