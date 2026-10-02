@@ -1,33 +1,99 @@
 {
   "System": {
     "Server": {
-      "ContentType": {
-        "btree": "text\/plain",
-        "lock": "text\/plain",
-        "connect": "text\/plain",
-        "response": "text\/plain",
-        "txt": "text\/plain",
-        "log": "text\/plain",
-        "ini": "text\/plain",
-        "sh": "text\/plain",
-        "html": "text\/html",
-        "tpl": "text\/html",
-        "css": "text\/css",
-        "js": "application\/javascript",
-        "map": "application\/json",
-        "json": "application\/json",
-        "jsonl": "application\/jsonlines",
-        "md": "text\/html",
-        "svg": "image\/svg+xml",
-        "csv": "text\/csv",
-        "php": "text\/html",
-        "xml": "application\/xml",
-        "wasm": "application\/wasm",
-        "db": "application\/octet-stream",
-        "sql": "text\/plain",
-        "gz": "application/x-gzip",
-        "conf": "text/plain"
-      }
+      "ContentType": [
+          {
+            "description": "Text file",
+            "content_content_type": "text\/plain",
+            "extension": ".txt"
+          },
+          {
+            "description": "Log file",
+            "content_type": "text\/plain",
+            "extension": ".log"
+          },
+          {
+            "description": "Ini file",
+            "content_type": "text\/plain",
+            "extension": ".ini"
+          },
+          {
+            "description": "Markdown file",
+            "content_type": "text\/html",
+            "extension": ".md"
+          },
+        {
+          "description": "Php file",
+          "content_type": "text\/html",
+          "extension": ".php"
+        },
+        {
+          "description": "Html file",
+          "content_type": "text\/html",
+          "extension": ".html"
+        },
+        {
+          "description": "Gzip Wav file",
+          "content_type": "text\/html",
+          "extension": ".tpl"
+        },
+        {
+          "description": "Gzip Wav file",
+          "content_type": "text\/plain",
+          "extension": ".rax"
+        },
+        {
+          "description": "Cascading stylesheet file",
+          "content_type": "text\/css",
+          "extension": ".css"
+        },
+        {
+          "description": "javascript file",
+          "content_type": "application\/javascript",
+          "extension": ".js"
+        },
+        {
+          "description": "JSON file",
+          "content_type": "application\/json",
+          "extension": ".json"
+        },{
+          "description": "Json line file",
+          "content_type": "application\/jsonlines",
+          "extension": ".jsonl"
+        },
+        {
+          "description": "Gzip file",
+          "content_type": "application\/x-gzip",
+          "extension": ".gz"
+        },{
+          "description": "Csv file",
+          "content_type": "text\/csv",
+          "extension": ".csv"
+        },
+        {
+          "description": "Xml file",
+          "content_type": "application\/xml",
+          "extension": ".xml"
+        },{
+          "description": "lock file",
+          "content_type": "text\/plain",
+          "extension": ".lock"
+        },{
+          "description": "Binary tree file",
+          "content_type": "text\/plain",
+          "extension": ".btree"
+        },
+        {
+          "description": "Connect file",
+          "content_type": "text\/plain",
+          "extension": ".connect"
+        },
+        {
+          "description": "Db file",
+          "content_type": "application\/octet-stream",
+          "extension": ".db"
+        }
+      ]
     }
   }
 }

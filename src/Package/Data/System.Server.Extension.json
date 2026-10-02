@@ -1,34 +1,108 @@
 {
   "System": {
     "Server": {
-      "Extension": {
-        "txt": ".txt",
-        "log": ".log",
-        "ini": ".ini",
-        "html": ".html",
-        "css": ".css",
-        "js": ".js",
-        "map": ".map",
-        "json": ".json",
-        "jsonl": ".jsonl",
-        "md": ".md",
-        "svg": ".svg",
-        "wasm": ".wasm",
-        "gz": ".gz",
-        "tpl": ".tpl",
-        "conf": ".conf",
-        "pdf": ".pdf",
-        "php": ".php",
-        "csv": ".csv",
-        "xml": ".xml",
-        "lock": ".lock",
-        "btree": ".btree",
-        "connect": ".connect",
-        "response": ".response",
-        "sh": ".sh",
-        "db": ".db",
-        "sql": ".sql"
-      }
+      "Extension": [
+          {
+            "description": "Txt file",
+            "name": "txt",
+            "extension": ".txt"
+          },
+          {
+            "description": "Log file",
+            "name": "log",
+            "extension": ".log"
+          },
+          {
+            "description": "Ini file",
+            "name": "ini",
+            "extension": ".ini"
+          },
+          {
+            "description": "Css file",
+            "name": "css",
+            "extension": ".css"
+          },
+          {
+            "description": "Md (Markdown) file",
+            "name": "md",
+            "extension": ".md"
+          },
+        {
+          "description": "Md (Markdown) file",
+          "name": "md",
+          "extension": ".md"
+        },
+        {
+          "description": "Php file",
+          "name": "php",
+          "extension": ".php"
+        },
+        {
+          "description": "Html (Markup) file",
+          "name": "html",
+          "extension": ".html"
+        },
+        {
+          "description": "Tpl (Template) file",
+          "name": "tpl",
+          "extension": ".tpl"
+        },
+        {
+          "description": "Rax (Raxon) file",
+          "name": "rax",
+          "extension": ".rax"
+        },
+        {
+          "description": "Js (Javascript) file",
+          "name": "js",
+          "extension": ".js"
+        },
+        {
+          "description": "Json (Javascript Objec Notation) file",
+          "name": "json",
+          "extension": ".json"
+        },
+        {
+          "description": "Jsonl (Json lines) file",
+          "name": "jsonl",
+          "extension": ".jsonl"
+        },
+        {
+          "description": "Gz file",
+          "name": "gz",
+          "extension": ".gz"
+        },
+        {
+          "description": "Csv file",
+          "name": "csv",
+          "extension": ".csv"
+        },
+        {
+          "description": "Xml file",
+          "name": "xml",
+          "extension": ".xml"
+        },
+        {
+          "description": "Lock file",
+          "name": "lock",
+          "extension": ".lock"
+        },
+        {
+          "description": "Btree file",
+          "name": "btree",
+          "extension": ".btree"
+        },
+        {
+          "description": "Connect file",
+          "name": "connect",
+          "extension": ".connect"
+        },
+        {
+          "description": "Db file",
+          "name": "db",
+          "extension": ".db"
+        }
+      ]
     }
   }
 }
