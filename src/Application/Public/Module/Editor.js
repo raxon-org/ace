@@ -3,8 +3,6 @@ import { getSectionById } from "/Module/Section.js";
 import { dialog } from "/Dialog/Module/Dialog.js";
 import { object } from "/Module/Object.js";
 import user from "/Module/User.js";
-import {directory} from "../../../../../filemanager/src/Application/Public/Module/Directory";
-
 
 let editor = {};
 
