@@ -3,6 +3,7 @@ namespace Package\Raxon\Ace\Trait;
 
 use Exception;
 use Package\Raxon\Desktop\Module\Navigation;
+use Package\Raxon\Basic\Trait\Install;
 use Raxon\Config;
 use Raxon\Exception\DirectoryCreateException;
 use Raxon\Exception\ObjectException;
@@ -18,6 +19,8 @@ trait Setup {
     const PACKAGE = 'raxon/ace';
     const CONTENT_TYPE_ENABLED = 'System.Server.ContentType.Enabled';
 
+    use Install;
+
     /**
      * @throws DirectoryCreateException
      * @throws Exception
@@ -28,9 +31,25 @@ trait Setup {
         if($object->config(Config::POSIX_ID) !== 0){
             return;
         }
-        if($object->config(Config::POSIX_ID) !== 0){
-            return;
+        $application_list = $this->install_system_application(
+            $flags,
+            $options,
+        );
+//        $this->object($object);
+        foreach($application_list as $application){
+            ddd($application);
+            $list = User::list($object, User::ROLES_ALLOWED);
+            $this->install_api($options, $application);
+            $this->install_application($options, $application);
+            Navigation::create(
+                $object,
+                $list,
+                $options,
+                $application
+            );
         }
+
+        /*
         $options->frontend = $this->install_frontend_get($options);
         $options->backend = $this->install_backend_get($options);
         $options->package = self::PACKAGE;
@@ -68,12 +87,14 @@ trait Setup {
         if($notification){
             echo $notification;
         }
+        */
     }
 
     /**
      * @throws ObjectException
      * @throws Exception
      */
+    /*
     public function install_system_application(object $flags, object $options): void
     {
         $object = $this->object();
@@ -199,5 +220,6 @@ trait Setup {
             }
         }
     }
+    */
 
 }
