@@ -2,13 +2,12 @@
 namespace Package\Raxon\Ace\Trait;
 
 use Exception;
+use Package\Raxon\Account\Module\User;
 use Package\Raxon\Desktop\Module\Navigation;
 use Package\Raxon\Basic\Trait\Install;
 use Raxon\Config;
 use Raxon\Exception\DirectoryCreateException;
 use Raxon\Exception\ObjectException;
-use Raxon\Module\Core;
-use Raxon\Node\Module\Node;
 
 trait Setup {
     const NAME = 'Ace';
