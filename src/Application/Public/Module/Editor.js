@@ -3,6 +3,7 @@ import { getSectionById } from "/Module/Section.js";
 import { dialog } from "/Dialog/Module/Dialog.js";
 import { object } from "/Module/Object.js";
 import user from "/Module/User.js";
+import {directory} from "../../../../../filemanager/src/Application/Public/Module/Directory";
 
 
 let editor = {};
@@ -127,29 +128,84 @@ editor.save = (options) => {
         "request-method" : "PUT"
     };
     request(options?.url, data, (filesystem_url, response) => {
-        const section = pre.closest('section');
-        if(!section){
-            return;
+        if(
+            response?.class &&
+            in_array(
+                response?.class, [
+                    'Package\\Raxon\\Account\\Exception\\TokenExpiredException',
+                    'Package\\Raxon\\Account\\Exception\\AuthorizationException',
+                ],
+                true
+            )
+        ){
+            user.authorization((url, data) => {
+                if (
+                    data?.class &&
+                    in_array(
+                        data?.class, [
+                            'Package\\Raxon\\Account\\Exception\\TokenExpiredException',
+                            'Package\\Raxon\\Account\\Exception\\AuthorizationException',
+                        ],
+                        true
+                    )
+                ) {
+                    redirect(user.url.login());
+                }
+                else if (
+                    data.node?.token &&
+                    data.node?.refresh_token
+                ){
+                    user.token(data.node?.token);
+                    user.refreshToken(data.node?.refresh_token);
+                    const original = user.data();
+                    const node = data?.node || {};
+                    delete node?.token;
+                    delete node?.refresh_token;
+                    const merge = { ...original, ...node };
+                    user.data(merge);
+                    editor.save(options);
+                } else {
+                    if(url_login){
+                        redirect(url_login);
+                    }
+                }
+            });
         }
-        const menu = section.select('.menu');
-        if(!menu){
-            return;
-        }
-        const file = menu.select('li.file');
-        if(file){
-            file.trigger('click');
-        }
-        const input = select('input.file-manager-address');
-        if(!input){
-            return;
-        }
-        if(input.val()){
-            input.trigger('change');
+        else if(
+            response?.class &&
+            in_array(
+                response.class, [
+                    'Raxon\\Exception\\AuthorizationException',
+                ])
+        ){
+            if(url_login){
+                redirect(url_login);
+            }
         } else {
-            let index;
-            for(index=0; index < input.length; index++){
-                let item = input[index];
-                item.trigger('change');
+            const section = pre.closest('section');
+            if(!section){
+                return;
+            }
+            const menu = section.select('.menu');
+            if(!menu){
+                return;
+            }
+            const file = menu.select('li.file');
+            if(file){
+                file.trigger('click');
+            }
+            const input = select('input.file-manager-address');
+            if(!input){
+                return;
+            }
+            if(input.val()){
+                input.trigger('change');
+            } else {
+                let index;
+                for(index=0; index < input.length; index++){
+                    let item = input[index];
+                    item.trigger('change');
+                }
             }
         }
     });
