@@ -3,7 +3,7 @@
         "Route": [
             {
                 "name": "application-ace-editor",
-                "path": "\/Application\/Ace\/Editor\/",
+                "path": "\/Application\/Ace\/",
                 "host": "{{options('frontend.host')}}",
                 "controller": "Domain:{{app.controller.host(options('frontend.host'))}}:Application:Ace:Controller:Editor:main",
                 "priority": 3001,
