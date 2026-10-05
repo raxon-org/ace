@@ -37,13 +37,11 @@ trait Setup {
         );
 //        $this->object($object);
         foreach($application_list as $application){
-            ddd($application);
             $list = User::list($object, User::ROLES_ALLOWED);
             $this->install_api($options, $application);
             $this->install_application($options, $application);
             Navigation::create(
                 $object,
-                $list,
                 $options,
                 $application
             );
